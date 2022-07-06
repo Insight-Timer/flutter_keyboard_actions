@@ -3,13 +3,11 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:intl/intl.dart';
 
 /// A quick example "keyboard" widget for picking a color.
-class ColorPickerKeyboard extends StatelessWidget
-    with KeyboardCustomPanelMixin<Color>
-    implements PreferredSizeWidget {
+class ColorPickerKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<Color> implements PreferredSizeWidget {
   final ValueNotifier<Color> notifier;
   static const double _kKeyboardHeight = 200;
 
-  ColorPickerKeyboard({Key key, this.notifier}) : super(key: key);
+  ColorPickerKeyboard({Key? key, required this.notifier}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +43,10 @@ class ColorPickerKeyboard extends StatelessWidget
 }
 
 /// A quick example "keyboard" widget for Counter.
-class CounterKeyboard extends StatelessWidget
-    with KeyboardCustomPanelMixin<String>
-    implements PreferredSizeWidget {
+class CounterKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<String> implements PreferredSizeWidget {
   final ValueNotifier<String> notifier;
 
-  CounterKeyboard({Key key, this.notifier}) : super(key: key);
+  CounterKeyboard({Key? key, required this.notifier}) : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(200);
@@ -102,16 +98,14 @@ class CounterKeyboard extends StatelessWidget
 }
 
 /// A quick example "keyboard" widget for Numeric.
-class NumericKeyboard extends StatelessWidget
-    with KeyboardCustomPanelMixin<String>
-    implements PreferredSizeWidget {
+class NumericKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<String> implements PreferredSizeWidget {
   final ValueNotifier<String> notifier;
   final FocusNode focusNode;
 
   NumericKeyboard({
-    Key key,
-    this.notifier,
-    this.focusNode,
+    Key? key,
+    required this.notifier,
+    required this.focusNode,
   }) : super(key: key);
 
   @override
@@ -178,26 +172,26 @@ class NumericKeyboard extends StatelessWidget
   }
 
   Widget _buildButton({
-    String text,
-    IconData icon,
-    Color color,
+    String? text,
+    IconData? icon,
+    Color? color,
   }) =>
       NumericButton(
         text: text,
         icon: icon,
         color: color,
-        onTap: () => icon != null ? _onTapBackspace() : _onTapNumber(text),
+        onTap: () => icon != null ? _onTapBackspace() : _onTapNumber(text ?? ""),
       );
 }
 
 class NumericButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onTap;
-  final IconData icon;
-  final Color color;
+  final String? text;
+  final VoidCallback? onTap;
+  final IconData? icon;
+  final Color? color;
 
   const NumericButton({
-    Key key,
+    Key? key,
     this.text,
     this.onTap,
     this.icon,
@@ -221,7 +215,7 @@ class NumericButton extends StatelessWidget {
                     color: Colors.white,
                   )
                 : Text(
-                    text,
+                    text ?? "",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,

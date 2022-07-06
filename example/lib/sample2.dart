@@ -56,9 +56,9 @@ class MyCustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final TextEditingController controller;
 
   const MyCustomBarWidget({
-    Key key,
-    this.node,
-    this.controller,
+    Key? key,
+    required this.node,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -66,11 +66,8 @@ class MyCustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-            icon: Icon(Icons.access_alarm),
-            onPressed: () => print('hello world 1')),
-        IconButton(
-            icon: Icon(Icons.send), onPressed: () => print(controller.text)),
+        IconButton(icon: Icon(Icons.access_alarm), onPressed: () => print('hello world 1')),
+        IconButton(icon: Icon(Icons.send), onPressed: () => print(controller.text)),
         Spacer(),
         IconButton(icon: Icon(Icons.close), onPressed: () => node.unfocus()),
       ],
