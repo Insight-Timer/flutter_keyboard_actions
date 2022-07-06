@@ -229,7 +229,7 @@ class KeyboardActionstate extends State<KeyboardActions>
         _overlayEntry!.markNeedsBuild();
       }
       if (_currentAction != null && _currentAction!.footerBuilder != null) {
-        WidgetsBinding.instance!.addPostFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _updateOffset();
         });
       }
@@ -239,7 +239,7 @@ class KeyboardActionstate extends State<KeyboardActions>
   @override
   void didChangeMetrics() {
     if (PlatformCheck.isAndroid) {
-      final value = WidgetsBinding.instance!.window.viewInsets.bottom;
+      final value = WidgetsBinding.instance.window.viewInsets.bottom;
       if (value > 0) {
         _onKeyboardChanged(true);
         isKeyboardOpen = true;
@@ -249,7 +249,7 @@ class KeyboardActionstate extends State<KeyboardActions>
       }
     }
     // Need to wait a frame to get the new size
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateOffset();
     });
   }
@@ -403,16 +403,16 @@ class KeyboardActionstate extends State<KeyboardActions>
   void dispose() {
     clearConfig();
     _removeOverlay(fromDispose: true);
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     if (widget.enable) {
       setConfig(widget.config);
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         _onLayout();
         _updateOffset();
       });
