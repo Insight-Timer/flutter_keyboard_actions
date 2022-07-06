@@ -9,7 +9,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  _openWidget(BuildContext context, Widget widget) => Navigator.of(context).push(
+  _openWidget(BuildContext context, Widget widget) =>
+      Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => widget),
       );
 

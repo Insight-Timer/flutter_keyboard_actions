@@ -3,7 +3,9 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:intl/intl.dart';
 
 /// A quick example "keyboard" widget for picking a color.
-class ColorPickerKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<Color> implements PreferredSizeWidget {
+class ColorPickerKeyboard extends StatelessWidget
+    with KeyboardCustomPanelMixin<Color>
+    implements PreferredSizeWidget {
   final ValueNotifier<Color> notifier;
   static const double _kKeyboardHeight = 200;
 
@@ -43,7 +45,9 @@ class ColorPickerKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<
 }
 
 /// A quick example "keyboard" widget for Counter.
-class CounterKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<String> implements PreferredSizeWidget {
+class CounterKeyboard extends StatelessWidget
+    with KeyboardCustomPanelMixin<String>
+    implements PreferredSizeWidget {
   final ValueNotifier<String> notifier;
 
   CounterKeyboard({Key? key, required this.notifier}) : super(key: key);
@@ -98,7 +102,9 @@ class CounterKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<Stri
 }
 
 /// A quick example "keyboard" widget for Numeric.
-class NumericKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<String> implements PreferredSizeWidget {
+class NumericKeyboard extends StatelessWidget
+    with KeyboardCustomPanelMixin<String>
+    implements PreferredSizeWidget {
   final ValueNotifier<String> notifier;
   final FocusNode focusNode;
 
@@ -180,7 +186,8 @@ class NumericKeyboard extends StatelessWidget with KeyboardCustomPanelMixin<Stri
         text: text,
         icon: icon,
         color: color,
-        onTap: () => icon != null ? _onTapBackspace() : _onTapNumber(text ?? ""),
+        onTap: () =>
+            icon != null ? _onTapBackspace() : _onTapNumber(text ?? ""),
       );
 }
 
