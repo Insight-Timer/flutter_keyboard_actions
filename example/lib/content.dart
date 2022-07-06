@@ -6,7 +6,7 @@ import 'custom_input.dart';
 class Content extends StatefulWidget {
   final bool isDialog;
 
-  const Content({Key key, this.isDialog = false}) : super(key: key);
+  const Content({Key? key, this.isDialog = false}) : super(key: key);
 
   @override
   _ContentState createState() => _ContentState();
@@ -228,7 +228,8 @@ class _ContentState extends State<Content> {
                 builder: (context, val, hasFocus) {
                   return Container(
                     alignment: Alignment.center,
-                    color: hasFocus ? Colors.grey[300] : Colors.white,
+                    color:
+                        (hasFocus ?? false) ? Colors.grey[300] : Colors.white,
                     child: Text(
                       val,
                       style:
@@ -244,7 +245,7 @@ class _ContentState extends State<Content> {
                 builder: (context, val, hasFocus) {
                   return Container(
                     width: double.maxFinite,
-                    color: val ?? Colors.transparent,
+                    color: val,
                   );
                 },
               ),
